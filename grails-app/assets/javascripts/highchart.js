@@ -1,4 +1,2 @@
-//=require highchart/highcharts.src
-//=require highchart/highcharts-more.src
-//=require highchart/modules/exporting
-//=require highchart/tableToHighChart
+//=require highchart/highcharts.js
+//=require highchart/modules/exporting.js

@@ -1,0 +1,5 @@
+.chartloading{
+    min-width: 400px;
+    min-height:400px;
+    /*background:url('<asset:image src="spinner.gif"/>') no-repeat center center white;*/
+}

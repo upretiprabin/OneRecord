@@ -11,5 +11,6 @@
 *= require grails
 *= require main
 *= require mobile
+*= require custom/style.css
 *= require_self
 */

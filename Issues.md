@@ -1,0 +1,2 @@
+# Grails uses application.js to compile all the js files for using asset pipeline. so to import javascripts from asset it is included inside application.js
+# To implement highchart we can only use highcharts.js and exporting.js but we make an additional file highchart.js to make sure highcharts.js is loaded first than exporting.js
