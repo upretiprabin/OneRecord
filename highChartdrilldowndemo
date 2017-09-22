@@ -1,0 +1,197 @@
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+
+    $(function () {
+        // Create the chart
+        var chart = Highcharts.chart({
+            chart: {
+                type: 'line',
+                renderTo: 'container',
+                events: {
+                    drilldown: function (e) {
+                        chart.setTitle(
+                            {text: e.point.name}  
+                        );
+                        chart.xAxis[0].axisTitle.attr({text: '2018'});
+                    },
+                    drillup: function (e) {
+                        chart.setTitle(
+                            {text: 'Click a columns to view individual Year'}
+                        );
+                        chart.xAxis[0].axisTitle.attr({text: 'Year'});
+                    },
+                },
+            },
+            title: {
+                text: 'Data 2016-2018'
+            },
+            subtitle: {
+                text: 'Click a columns to view individual Year'
+            },
+            xAxis: {
+                type: 'category',
+                title: {
+                    text: 'Year'
+                },
+            },
+            yAxis: [{title: {text: 'Tonnes'}},
+                    
+                {title: {text: '€ (Millions)'},
+                         yAxis: 1,
+                         opposite: true,
+                        },
+                    
+                {title: {text: '€/kg.'},
+                         yAxis: 2,
+                         opposite: true,
+                        },
+                    
+                ],
+            legend: {
+                enabled: true,
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:,.0f}'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.0f}</b><br/>'
+            },
+
+            series: [
+            
+                
+                {
+                name: 'Tonnes',
+                
+                
+                data: [{
+                    name: '2017',
+                    y: 390512.4,
+                    drilldown: '2017'
+                    },{
+                    name: '2016',
+                    y: 531104.2,
+                    drilldown: '2016'
+                    },{
+                    name: '2018',
+                    y: 460808.3,
+                    drilldown: '2018'
+                    },]
+            },
+            
+                
+                {
+                name: '€ (Millions)',
+                yAxis: 1,
+                
+                data: [{
+                    name: '2017',
+                    y: 1591.6,
+                    drilldown: '2017'
+                    },{
+                    name: '2016',
+                    y: 3061.9,
+                    drilldown: '2016'
+                    },{
+                    name: '2018',
+                    y: 2326.7,
+                    drilldown: '2018'
+                    },]
+            },
+            
+                
+                {
+                name: '€/kg.',
+                yAxis: 2, 
+                
+                data: [{
+                    name: '2017',
+                    y: 4.1,
+                    drilldown: '2017'
+                    },{
+                    name: '2016',
+                    y: 5.7,
+                    drilldown: '2016'
+                    },{
+                    name: '2018',
+                    y: 4.9,
+                    drilldown: '2018'
+                    },]
+            },
+            
+            ],
+            drilldown: {
+                series: [
+                    {
+                        name: '2017',
+                        type: 'column',
+                        id: '2017',
+                        data: [
+                            
+                            {name: 'Tonnes',
+                             y:390512.496}, 
+                            
+                            
+                            {name: '€ (Millions)',
+                             y:1591.6}, 
+                            
+                            
+                            {name: '€/kg.',
+                             y:4.0}, 
+                            
+                        ],
+                    },
+                    {
+                        name: '2016',
+                        type: 'column',
+                        id: '2016',
+                        data: [
+                            
+                            {name: 'Tonnes',
+                             y:531104.211}, 
+                            
+                            
+                            {name: '€ (Millions)',
+                             y:3061.9}, 
+                            
+                            
+                            {name: '€/kg.',
+                             y:5.7}, 
+                            
+                        ],
+                    },
+                    {
+                        name: '2018',
+                        type: 'column',
+                        id: '2018',
+                        data: [
+                            
+                            {name: 'Tonnes',
+                             y:460808.3}, 
+                            
+                            
+                            {name: '€ (Millions)',
+                             y:2326.7}, 
+                            
+                            
+                            {name: '€/kg.',
+                             y:4.9}, 
+                            
+                        ],
+                    },
+                ],
+            }
+        });
+    });
