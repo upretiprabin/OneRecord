@@ -5,6 +5,7 @@ import grails.core.GrailsApplication
 import org.grails.web.json.JSONObject
 import org.grails.web.json.parser.JSONParser
 import org.joda.time.DateTime
+import org.joda.time.Interval
 
 class DashBoardController {
 
@@ -30,6 +31,16 @@ class DashBoardController {
         DateTime today = new DateTime();
 
         DateTime tomorrow = today.plusDays(1);
+
+        String num = "2/064";
+
+        try{
+
+
+        System.out.println("parsewithoffset-------------------"+Interval.parseWithOffset(num))
+        }catch(e){
+            println "no class found----at testbranch-----"
+        }
 
         System.out.println(today.toString("yyyy-MMM-dd"));
 

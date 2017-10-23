@@ -128,3 +128,5 @@ server:
     contextPath: '/onerecord'
 
 jsonFileName : 'onerecord.json'
+
+branch : 'testbranch'
