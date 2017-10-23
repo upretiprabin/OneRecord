@@ -40,6 +40,19 @@ dependencyManagement {
     applyMavenExclusions false
 }
 
+apply plugin: 'java'
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main.compileClasspath += configurations.provided
+    test.compileClasspath += configurations.provided
+    test.runtimeClasspath += configurations.provided
+}
+
+
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
@@ -61,6 +74,9 @@ dependencies {
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
+
+
+    provided ('joda-time:joda-time:2.9.3')
 }
 
 task wrapper(type: Wrapper) {
@@ -70,4 +86,9 @@ task wrapper(type: Wrapper) {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+war {
+
+    rootSpec.exclude("**/WEB-INF/lib-provided/")
 }
