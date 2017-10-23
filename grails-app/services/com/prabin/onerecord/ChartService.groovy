@@ -43,11 +43,7 @@ class ChartService {
                                 'Total: ' + this.point.stackTotal;
                     }
                 },
-                series: [{
-                    name: 'John',
-                    data: [5, 3, 4, 7, 2],
-                    stack: 'male'
-                }]
+                series: [${series}]
             }""";
 
         return chartScript;

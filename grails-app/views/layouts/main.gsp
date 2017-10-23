@@ -44,6 +44,7 @@
 
     <p align="center">One Reord </p>
     <p align="center">Date : ${new Date()} </p>
+    <p align="center">Branch : ${grailsApplication.config.branch} </p>
 </div>
 
     <div id="spinner" class="spinner" style="display:none;">
